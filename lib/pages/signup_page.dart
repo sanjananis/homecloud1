@@ -165,7 +165,7 @@ class _SignUpPageState extends State<signUp> {
                       hintText: "email",
                       prefixIcon: Icon(
                         Icons.mail_rounded,
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color.fromARGB(255, 0, 0, 0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -175,7 +175,7 @@ class _SignUpPageState extends State<signUp> {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      fillColor: Color.fromARGB(255, 45, 45, 45),
+                      fillColor: Color.fromARGB(255, 255, 255, 255),
                       filled: true,
                       focusColor: Color.fromARGB(255, 192, 192, 192),
                     ),

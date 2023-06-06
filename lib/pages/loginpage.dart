@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'signup_page.dart';
 
@@ -20,10 +21,30 @@ class _LoginPageState extends State<LoginPage> {
 
   // on click of sign in
   Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+        try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      /*Navigator.push(context,
+      MaterialPageRoute(builder: (context) => Home()),
+      );*/
+    } catch (Error) {
+      if (Error is FirebaseAuthException) {
+        if (Error.code == 'wrong-password') {
+          print("Incorrect password");
+          passwordController.clear(); // Clear the password field
+          Fluttertoast.showToast(
+              msg: "Please enter valid password", toastLength: Toast.LENGTH_LONG,
+              backgroundColor: Color.fromARGB(255, 255, 0, 0),
+              textColor: Color.fromARGB(255, 0, 0, 0),
+              gravity: ToastGravity.CENTER
+              );
+        } else {
+          print("Authentication failed: ${Error.message}");
+        }
+      }
+    }
   }
 
   // on click of use mobile number 
