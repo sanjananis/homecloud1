@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
           passwordController.clear(); // Clear the password field
           Fluttertoast.showToast(
               msg: "Please enter valid password", toastLength: Toast.LENGTH_LONG,
-              backgroundColor: Color.fromARGB(255, 255, 0, 0),
+              backgroundColor: Color.fromARGB(255, 255, 134, 134),
               textColor: Color.fromARGB(255, 0, 0, 0),
               gravity: ToastGravity.CENTER
               );
@@ -70,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
         return true;
       },
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 18, 24, 33),
+        backgroundColor: Color.fromARGB(255, 0, 24, 61),
         
         //backgroundColor: Colors.black,
         body: SafeArea(
@@ -165,10 +165,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     height: 55,
                     padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    margin: EdgeInsets.symmetric(horizontal: 70),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 227, 201, 116),
-                      borderRadius: BorderRadius.circular(15),
+                      color: Color.fromARGB(255, 255, 255, 140),
+                      borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Center(
                       child: Text(
@@ -186,7 +186,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 35),
                 // or
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: Row(
                     children: const [
                       Expanded(
@@ -196,7 +196,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
                         child: Text(
                           "Or",
                           style:
@@ -220,10 +220,10 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     height: 55,
                     padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(horizontal: 25),
+                    margin: EdgeInsets.symmetric(horizontal: 70),
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 122, 233, 165),
-                      borderRadius: BorderRadius.circular(20),
+                      color: Color.fromARGB(255, 114, 255, 210),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     child: const Center(
                       child: Text(

@@ -125,7 +125,7 @@ class _SignUpPageState extends State<signUp> {
                       ),
                     controller: nameController,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                      hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 18),
                       hintText: "Full name",
                       prefixIcon: Icon(
                         Icons.account_circle_rounded,
@@ -139,9 +139,9 @@ class _SignUpPageState extends State<signUp> {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      fillColor: Color.fromARGB(255, 45, 45, 45),
+                     fillColor: Color.fromRGBO(255,255, 255, 0.230),
                       filled: true,
-                      focusColor: Color.fromARGB(255, 192, 192, 192),
+                      focusColor: Color.fromRGBO(224, 224, 224, 0.230),
                     ),
                   ),
                 ),
@@ -157,15 +157,15 @@ class _SignUpPageState extends State<signUp> {
                   padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: TextField(
                     style: TextStyle(
-                        color: Color.fromARGB(212, 255, 255, 255),
+                        color: Color.fromARGB(211, 0, 0, 0),
                         fontSize: 20),
                     controller: emailController,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                      hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 18),
                       hintText: "email",
                       prefixIcon: Icon(
                         Icons.mail_rounded,
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -173,11 +173,11 @@ class _SignUpPageState extends State<signUp> {
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        //borderSide: BorderSide(color: Colors.grey),
                       ),
-                      fillColor: Color.fromARGB(255, 255, 255, 255),
+                      fillColor: Color.fromRGBO(255,255, 255, 0.200),
                       filled: true,
-                      focusColor: Color.fromARGB(255, 192, 192, 192),
+                      focusColor: Color.fromRGBO(255, 255, 255, 0.200),
                     ),
                   ),
                 ),
@@ -198,8 +198,8 @@ class _SignUpPageState extends State<signUp> {
                     controller: passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-                      hintText: "password (min 6 characters)",
+                      hintStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: 18),
+                      hintText: "password (min 6 )",
                       prefixIcon: Icon(
                         Icons.lock_rounded,
                         color: Color.fromARGB(255, 255, 255, 255),
@@ -211,10 +211,11 @@ class _SignUpPageState extends State<signUp> {
                         //borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
+                        //borderSide: BorderSide(color: Color.fromARGB(255, 255, 255, 255)),
                       ),
-                      fillColor: Color.fromARGB(255, 45, 45, 45),
+                      fillColor: Color.fromRGBO(255,255, 255, 0.200),
                       filled: true,
+                      focusColor: Color.fromRGBO(255, 255, 255, 0.200),
                     ),
                   ),
                 ),
@@ -233,7 +234,7 @@ class _SignUpPageState extends State<signUp> {
                         fontSize: 20),
                     controller: phoneController,
                     decoration: const InputDecoration(
-                      hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
+                      hintStyle: TextStyle(color: Color.fromARGB(255, 218, 218, 218), fontSize: 18),
                       hintText: "mobile number",
                       prefixIcon: Icon(
                         Icons.phone_rounded,
@@ -247,9 +248,9 @@ class _SignUpPageState extends State<signUp> {
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      fillColor: Color.fromARGB(255, 45, 45, 45),
+                      fillColor: Color.fromRGBO(255,255, 255, 0.200),
                       filled: true,
-                      focusColor: Color.fromARGB(255, 192, 192, 192),
+                      focusColor: Color.fromRGBO(255, 255, 255, 0.200),
                     ),
                   ),
                 ),
@@ -264,10 +265,10 @@ class _SignUpPageState extends State<signUp> {
                 child: Container(
                   height: 55,
                   padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(horizontal: 40),
+                  margin: EdgeInsets.symmetric(horizontal: 80),
                   decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 72, 240, 232),
-                    borderRadius: BorderRadius.circular(15),
+                    color: Color.fromARGB(255, 255, 134, 221),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: const Center(
                     child: Text(
@@ -319,11 +320,11 @@ class _SignUpPageState extends State<signUp> {
                 child: Container(
                   height: 55,
                   padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(horizontal: 40),
+                  margin: EdgeInsets.symmetric(horizontal: 80),
                   decoration: BoxDecoration(
                     //color: Color.fromARGB(255, 22, 33, 126),
-                    color: Color.fromARGB(255, 255, 168, 242),
-                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromARGB(255, 255, 245, 135),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: Center(
                     // child: OutlinedButton.icon(

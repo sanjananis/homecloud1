@@ -1,35 +1,66 @@
 
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
+import 'package:wifi_flutter/wifi_network.dart';
 import 'package:wifi_info_flutter/wifi_info_flutter.dart';
-import 'package:wifi_flutter/wifi_flutter.dart';
+// ignore: depend_on_referenced_packages
+//import 'package:connectivity/connectivity.dart';
 
-    //Define a stateful widget that retrieves and displays the available Wi-Fi devices:
-
-dart
-
-class WifiDeviceList extends StatefulWidget {
+class WifiNetworkList extends StatefulWidget {
   @override
-  _WifiDeviceListState createState() => _WifiDeviceListState();
+  _WifiNetworkListState createState() => _WifiNetworkListState();
 }
 
-class _WifiDeviceListState extends State<WifiDeviceList> {
+class _WifiNetworkListState extends State<WifiNetworkList> {
   List<WifiNetwork> wifiList = [];
 
   @override
   void initState() {
     super.initState();
-    getAvailableWifiDevices();
+    getAvailableWifiNetworks();
   }
 
-  Future<void> getAvailableWifiDevices() async {
+  Future<void> getAvailableWifiNetworks() async {
     try {
-      // Request permission to access Wi-Fi information
       await WifiInfoFlutter.requestLocationPermission();
-
-      // Get the list of available Wi-Fi devices
-      wifiList = await WifiInfoFlutter.wifiDetails;
-
+      wifiList = await WifiInfoFlutter().getWifiList();
       setState(() {});
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> connectToWifi(WifiNetwork wifi) async {
+    try {
+      bool isConnected = await WifiInfoFlutter().connectToWifi(wifi.ssid);
+      if (isConnected) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Success'),
+            content: Text('Connected to ${wifi.ssid}'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error'),
+            content: Text('Failed to connect to ${wifi.ssid}'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
     } catch (e) {
       print('Error: $e');
     }
@@ -39,48 +70,16 @@ class _WifiDeviceListState extends State<WifiDeviceList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Available Wi-Fi Devices'),
+        title: Text('Available Wi-Fi Networks'),
       ),
       body: ListView.builder(
         itemCount: wifiList.length,
         itemBuilder: (context, index) {
+          final wifi = wifiList[index];
           return ListTile(
-            title: Text(wifiList[index].ssid),
-            subtitle: Text(wifiList[index].bssid),
-            onTap: () {
-              // Connect to the selected Wi-Fi device
-              WifiFlutter.connect(wifiList[index].ssid).then((value) {
-                if (value) {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text('Success'),
-                      content: Text('Connected to ${wifiList[index].ssid}'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text('OK'),
-                        ),
-                      ],
-                    ),
-                  );
-                } else {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text('Error'),
-                      content: Text('Failed to connect to ${wifiList[index].ssid}'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text('OK'),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              });
-            },
+            title: Text(wifi.ssid),
+            subtitle: Text(wifi.ssid),
+            onTap: () => connectToWifi(wifi),
           );
         },
       ),
@@ -88,9 +87,13 @@ class _WifiDeviceListState extends State<WifiDeviceList> {
   }
 }
 
-   // Use the WifiDeviceList widget in your app's main widget or any other relevant part:
-
-dart
+class WifiInfoFlutter {
+  static requestLocationPermission() {}
+  
+  connectToWifi(String ssid) {}
+  
+  getWifiList() {}
+}
 
 void main() {
   runApp(MyApp());
@@ -104,7 +107,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WifiDeviceList(),
+      home: WifiNetworkList(),
     );
   }
-}
+}*/
